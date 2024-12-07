@@ -1,0 +1,47 @@
+site_name: B-Gyro Documentation
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+
+  language: en
+
+  palette:
+    - scheme: slate   
+      primary: '#65D2DA'  # primaryColor
+      accent: '#5766BE'   # darkColor
+      background:
+        darkest: '#242930'  # darkestColor
+        dark: '#313841'     # darkColor
+        light: '#CBD2D8'    # lightColor
+        lightest: '#ffffff' # lightestColor
+plugins:
+  - social
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
