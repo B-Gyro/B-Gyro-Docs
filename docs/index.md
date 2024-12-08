@@ -1,37 +1,25 @@
 # Home Page
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Welcome to B-Gyro
 
-## Code Highlighting
+"Meet B-Gyro: our attempt at an operating system inspired by the gyroscope's stability... except ours wobbles more than it balances. Think of it as a gyroscope that moonlights as a boomerang—it keeps coming back with more bugs to fix!" -- by 0rayn and faithByte
 
-```py linenums="1"
-def hello():
-	print("Hello, World!")
-```
-```C title="main.c"
-int main() {
-	return 0;
-}
-```
+### Features
 
-```C title="main with Hello" hl_lines="1 8"
-#include <stdio.h>
+- 32-bit operating system
+- Developed by 0rayn and faithByte
+- Debugging system using serial communication.
+- partial-support for Ansi escape codes, for colored text.
+- Minimalistic shell, with basic commands to interact with the system.
 
-int main() {
-	int i;
+### About Us
 
-	i = 0;
-	if (i == 0)
-		printf("Hello, World!\n");
-	return 0;
-}
-```
+We are a team of passionate developers working on creating a unique operating system. Our goal is to learn, innovate, and have fun along the way.
 
-```sh
-echo "Hello, World!"
-```
-## some other weird stuff
+### Get Started
 
-### Hallo
+To get started with B-Gyro, check out our [documentation](gettingStarted.md).
 
-#### Halloooo
+### Contact
+
+For any inquiries or feedback, feel free to reach out to us at [b.gyro.os@gmail.com](mailto:b.gyro.os@gmail.com)
