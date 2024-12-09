@@ -29,6 +29,7 @@ make run
 
 ## kernel API
 
+- [Ports IO](kernel-API/ports-io.md)
 - [Serial Communication](kernel-API/serial-communication.md)
 - [VGA Display](kernel-API/vga-display.md)
 - [Keyboard Input](kernel-API/keyboard-input.md)

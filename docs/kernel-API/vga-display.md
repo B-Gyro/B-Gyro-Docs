@@ -1,5 +1,3 @@
-# vga display:
+# vga display
 
-## Table of Contents
-
-- [Introduction](#introduction)
+## Functions
