@@ -6,7 +6,8 @@
 - [isTransmitEmpty](#istransmitempty)
 - [serialPutChar](#serialputchar)
 
-### initSerial
+---
+### **initSerial**
 
 **> Syntax:**
 ```c
@@ -30,7 +31,8 @@ This function configures the serial port with the following settings:
 
 Returns `0` on success, `1` if the serial chip is faulty.  
 
-### isTransmitEmpty
+---
+### **isTransmitEmpty**
 
 **> Syntax:**
 ```c
@@ -43,7 +45,8 @@ Checks if the transmit buffer is empty.
 
 This function returns `1` if the transmit buffer is empty, otherwise it returns `0`.
 
-### serialPutChar
+---
+### **serialPutChar**
 
 **> Syntax:**
 ```c
@@ -56,6 +59,9 @@ Sends a character over the serial port.
 
 This function places the character `c` into the transmit buffer and returns `1`. If the buffer is full, it waits until the buffer is empty and then places the character in the buffer.
 
-## Note
+---
+## **Note**
 
 All these functions use the COM1 port for serial communication.
+
+---
