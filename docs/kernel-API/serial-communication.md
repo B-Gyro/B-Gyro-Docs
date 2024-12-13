@@ -18,16 +18,12 @@ int initSerial(void);
 
 Initializes the serial communication using the UART protocol.
 
-This function configures the serial port with the following settings:  
-- Disables all serial interrupts.  
-- Enables DLAB to set the baud rate divisor.  
-- Sets the baud rate to 38400.  
-- Configures the port for 8 bits, no parity, and one stop bit.  
-- Enables and clears the FIFO with a 14-byte threshold.  
-- Enables IRQs and sets RTS/DSR.  
-- Tests the serial chip in loopback mode.  
-- Verifies the serial chip functionality.  
-- Sets the serial port to normal operation mode if the chip is functional.  
+This function configures the COM1 port with the following settings:  
+- Baud rate: 9600  
+- Data bits: 8  
+- Stop bits: 1  
+- Parity: None  
+- Flow control: None (relies on THR status)
 
 Returns `0` on success, `1` if the serial chip is faulty.  
 
