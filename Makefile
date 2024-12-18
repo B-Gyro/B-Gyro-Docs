@@ -1,4 +1,4 @@
-MAKEFLAGS += -s --ignore-errors
+MAKEFLAGS += --silent --ignore-errors
 
 PORT			= 8000
 MAX_PORT		= 8011
