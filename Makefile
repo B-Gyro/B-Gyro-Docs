@@ -28,7 +28,7 @@ check-port:
 		make check-port PORT=$$PORT; \
 	else \
 		echo "\033[0m"; \
-		make start PORT=$$PORT; \
+		make start PORT=$(PORT); \
 	fi 
 
 
