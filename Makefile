@@ -32,7 +32,7 @@ check-port:
 
 start: check-requirements 
 	@. $(PROJECT_PATH)/venv/bin/activate && \
-	nohup mkdocs serve --watch-theme --dirtyreload -a 0.0.0.0:$(PORT) > $(PROJECT_PATH)/mkdocs.log 2>&1 &
+	nohup mkdocs serve -a 0.0.0.0:$(PORT) > $(PROJECT_PATH)/mkdocs.log 2>&1 &
 	@echo "\033[1m> Waiting for MkDocs to start...";
 	@sleep 2;
 	@echo "\033[36;1m >>> MkDocs is being served at \`http://127.0.0.1:$(PORT)\`\033[0m"
