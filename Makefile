@@ -4,10 +4,9 @@ PORT			= 8000
 MAX_PORT		= 8011
 DEFAULT_PATH	= .
 
-PIP		= $(shell if command -v pip3 > /dev/null 2>&1; then echo pip3; elif command -v pip > /dev/null 2>&1; then echo pip; else echo ; fi)
 PYTHON	= $(shell if command -v python3 > /dev/null 2>&1; then echo python3; elif command -v python > /dev/null 2>&1; then echo python; else echo NOT_FOUND ; fi)
 
-REQUIREMENTS = mkdocs mkdocs-material emoji
+REQUIREMENTS = mkdocs mkdocs-material[imaging] # emoji mkdocs-material
 
 ifndef PROJECT_PATH
 	PROJECT_PATH := $(DEFAULT_PATH)
@@ -31,8 +30,7 @@ check-port:
 		make start PORT=$(PORT); \
 	fi 
 
-
-start: check-requirements venv
+start: check-requirements 
 	@. $(PROJECT_PATH)/venv/bin/activate && \
 	nohup mkdocs serve -a 0.0.0.0:$(PORT) > $(PROJECT_PATH)/mkdocs.log 2>&1 &
 	@echo "\033[1m> Waiting for MkDocs to start...";
@@ -46,16 +44,17 @@ venv:
 		echo "\033[92;1m> venv created succesfully\033[0m"; \
 	fi
 
-check-requirements:
+check-requirements: venv
 	@if [ "$(PYTHON)" = "NOT_FOUND" ]; then \
 		echo "\033[91;1m> Error: Make sure Python is installed and available in your PATH!\033[0m"; \
 		exit 1; \
 	fi
-
+	
+# 	. venv/bin/activate && 
 	@for package in $(REQUIREMENTS); do \
-		if ! $(PIP) show $$package > /dev/null 2>&1; then \
+		if ! $(PYTHON) -m pip show $$package > /dev/null 2>&1; then \
 			echo "\033[91;1m> $$package is not installed. Installing...\033[0m"; \
-			$(PIP) install $$package > /dev/null 2>&1 && \
+			$(PYTHON) -m pip install $$package --break-system-packages > /dev/null 2>&1 && \
 			echo "\033[92;1m> $$package installed succesfully.\033[0m"; \
 		fi \
 	done
@@ -70,8 +69,11 @@ clean:
 	@echo "\033[92;1;1mDONE.\033[0m";
 
 fclean: clean
-	@echo "\033[1m- Uninstalling requirements...\033[0m";
-	@$(PIP) uninstall -y $(REQUIREMENTS) 1>/dev/null 2> /dev/null
+	@echo "\033[1m- Removing:\033[0m";
+	@for package in $(REQUIREMENTS); do \
+		$(PYTHON) -m pip uninstall $$package -y --break-system-packages > /dev/null 2>&1 && \
+		echo "\033[1m  => $$package\033[0m"; \
+	done
 	@echo "\033[92;1;1mDONE.\033[0m";
 
 .PHONY: all venv mkdocs check-port check-requirements
