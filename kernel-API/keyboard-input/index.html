@@ -1,0 +1,1367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../_typedefs/">
+      
+      
+        <link rel="next" href="../memory-management/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Keyboard Input - B-Gyro Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="#65D2DA" data-md-color-accent="#5766BE">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#keyboard-input" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="B-Gyro Documentation" class="md-header__button md-logo" aria-label="B-Gyro Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            B-Gyro Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Keyboard Input
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#65D2DA" data-md-color-accent="#5766BE"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingStarted/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to B-Gyro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../_typedefs/" class="md-tabs__link">
+          
+  
+  
+  kernel API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="B-Gyro Documentation" class="md-nav__button md-logo" aria-label="B-Gyro Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    B-Gyro Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to B-Gyro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    kernel API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    kernel API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_typedefs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyboard Input
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyboard Input
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialization functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        promting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-pressrelease-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        key press/release handlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-scancode-letter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convert scancode &lt;=&gt; letter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcuts-handling-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shortcuts handling functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-defs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type defs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialization-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialization functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initialization functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboardinit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardInit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardsetlayout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardSetLayout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardsetbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardSetBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardclearbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardClearBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Promting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interruptprompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        interruptPrompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-pressrelease-handlers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key press/release handlers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key press/release handlers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboardsetkeypresshandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardSetKeyPressHandler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardsetkeyreleasehandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardSetKeyReleaseHandler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardresetkeypresshandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardResetKeyPressHandler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardresetkeyreleasehandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardResetKeyReleaseHandler
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-scancode-letter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert scancode &lt;=&gt; letter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convert scancode &lt;=&gt; letter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboardgetscancode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardGetScancode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboardgetletter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keyboardGetLetter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shortcuts-handling-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shortcuts handling functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shortcuts handling functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcutsreset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shortcutsReset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setshortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setShortcut
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-defs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type defs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="type defs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_kbdbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _kbdBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onkeypresshanlder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onKeyPressHanlder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onkeyreleasehanlder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onKeyReleaseHanlder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _shortcut
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onshortcuthandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        onShortcutHandler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_kbdlayout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _kbdLayout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports-io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serial-communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serial Communication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TTY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vga-display/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vga display
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="keyboard-input">Keyboard Input</h1>
+<h2 id="functions">Functions</h2>
+<h3 id="initialization-functions">initialization functions</h3>
+<ul>
+<li><a href="#keyboardInit">keyboardInit</a></li>
+<li><a href="#keyboardSetLayout">keyboardSetLayout</a></li>
+<li><a href="#keyboardSetBuffer">keyboardSetBuffer</a></li>
+<li><a href="#keyboardClearBuffer">keyboardClearBuffer</a></li>
+</ul>
+<h3 id="promting">promting</h3>
+<ul>
+<li><a href="#prompt">prompt</a></li>
+<li><a href="#interruptPrompting">interruptPrompting</a></li>
+</ul>
+<h3 id="key-pressrelease-handlers">key press/release handlers</h3>
+<ul>
+<li><a href="#keyboardSetKeyPressHandler">keyboardSetKeyPressHandler</a></li>
+<li><a href="#keyboardSetKeyReleaseHandler">keyboardSetKeyReleaseHandler</a></li>
+<li><a href="#keyboardResetKeyPressHandler">keyboardResetKeyPressHandler</a></li>
+<li><a href="#keyboardResetKeyReleaseHandler">keyboardResetKeyReleaseHandler</a></li>
+</ul>
+<h3 id="convert-scancode-letter">convert scancode &lt;=&gt; letter</h3>
+<ul>
+<li><a href="#keyboardGetScancode">keyboardGetScancode</a></li>
+<li><a href="#keyboardGetLetter">keyboardGetLetter</a></li>
+</ul>
+<h3 id="shortcuts-handling-functions">shortcuts handling functions</h3>
+<ul>
+<li><a href="#shortcutsReset">shortcutsReset</a></li>
+<li><a href="#setShortcut">setShortcut</a></li>
+</ul>
+<h2 id="type-defs">type defs</h2>
+<ul>
+<li><a href="#_kbdBuffer">_kbdBuffer</a></li>
+<li><a href="#onKeyPressHanlder">onKeyPressHanlder</a></li>
+<li><a href="#onKeyReleaseHanlder">onKeyReleaseHanlder</a></li>
+<li><a href="#_shortcut">_shortcut</a></li>
+<li><a href="#onShortcutHandler">onShortcutHandler</a></li>
+<li><a href="#_kbdLayout">_kbdLayout</a></li>
+</ul>
+<h2 id="initialization-functions_1">Initialization functions</h2>
+<hr />
+<h3 id="keyboardinit"><strong>keyboardInit</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w">    </span><span class="nf">keyboardInit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>initializes the keyboard driver by setting the keyboard buffer the current tty keyboard buffer, and default to the US keyboard layout.</p>
+<hr />
+<h3 id="keyboardsetlayout"><strong>keyboardSetLayout</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardSetLayout</span><span class="p">(</span><span class="n">_kbdLayout</span><span class="w"> </span><span class="n">layout</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Sets the keyboard layout to the provided layout (<a href="#_kbdLayout">_kbdLayout</a>).</p>
+<hr />
+<h3 id="keyboardsetbuffer"><strong>keyboardSetBuffer</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardSetBuffer</span><span class="p">(</span><span class="n">_kbdBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Sets the keyboard buffer to the provided buffer (<a href="#_kbdBuffer">_kbdBuffer</a>).</p>
+<hr />
+<h3 id="keyboardclearbuffer"><strong>keyboardClearBuffer</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardClearBuffer</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Clears the keyboard buffer.</p>
+<hr />
+<h2 id="promting_1">Promting</h2>
+<hr />
+<h3 id="prompt"><strong>prompt</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="nf">prompt</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">promtMessage</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Prompts the user with the provided message and waits for the user to enter a string of characters, which will be stored in the provided buffer.</p>
+<p><strong>&gt;&gt; Parameters:</strong></p>
+<ul>
+<li><strong>promtMessage:</strong> The message to be displayed to the user.</li>
+<li><strong>buffer:</strong> The buffer to store the user input.</li>
+</ul>
+<p><strong>&gt;&gt; Returns:</strong></p>
+<p>The buffer containing the user input.</p>
+<p><strong>&gt;&gt; Note:</strong></p>
+<ul>
+<li>can be interrupted with (<a href="#interruptPrompting">interruptPrompting</a>).</li>
+<li>buffer overflow ?!</li>
+</ul>
+<hr />
+<h3 id="interruptprompting"><strong>interruptPrompting</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">interruptPrompting</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Interrupts the current prompting operation.</p>
+<hr />
+<h2 id="key-pressrelease-handlers_1">Key press/release handlers</h2>
+<hr />
+<h3 id="keyboardsetkeypresshandler"><strong>keyboardSetKeyPressHandler</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardSetKeyPressHandler</span><span class="p">(</span><span class="n">onKeyPressHanlder</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Sets the key press handler to the provided handler (<a href="#onKeyPressHanlder">onKeyPressHanlder</a>).</p>
+<hr />
+<h3 id="keyboardsetkeyreleasehandler"><strong>keyboardSetKeyReleaseHandler</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardSetKeyReleaseHandler</span><span class="p">(</span><span class="n">onKeyReleaseHanlder</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Sets the key release handler to the provided handler (<a href="#onKeyReleaseHanlder">onKeyReleaseHanlder</a>).</p>
+<hr />
+<h3 id="keyboardresetkeypresshandler"><strong>keyboardResetKeyPressHandler</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardResetKeyPressHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Resets the key press handler to the default handler (tty compatible).</p>
+<hr />
+<h3 id="keyboardresetkeyreleasehandler"><strong>keyboardResetKeyReleaseHandler</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">keyboardResetKeyReleaseHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Resets the key release handler to the default handler (tty compatible).</p>
+<hr />
+<h2 id="convert-scancode-letter_1">Convert scancode &lt;=&gt; letter</h2>
+<hr />
+<h3 id="keyboardgetscancode"><strong>keyboardGetScancode</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">keyboardGetScancode</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">letter</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Returns the scancode of the provided letter.</p>
+<hr />
+<h3 id="keyboardgetletter"><strong>keyboardGetLetter</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">keyboardGetLetter</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">scancode</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Returns the letter of the provided scancode.</p>
+<hr />
+<h2 id="shortcuts-handling-functions_1">Shortcuts handling functions</h2>
+<hr />
+<h3 id="shortcutsreset"><strong>shortcutsReset</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shortcutsReset</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Resets all the shortcuts.</p>
+<hr />
+<h3 id="setshortcut"><strong>setShortcut</strong></h3>
+<p><strong>&gt;&gt; Syntax:</strong>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setShortcut</span><span class="p">(</span><span class="n">_shortcut</span><span class="w"> </span><span class="n">shortcut</span><span class="p">,</span><span class="w"> </span><span class="n">onShortcutHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>Sets the provided shortcut (<a href="#_shortcut">_shortcut</a>) to the provided handler (<a href="#onShortcutHandler">onShortcutHandler</a>).</p>
+<hr />
+<h2 id="type-defs_1">type defs</h2>
+<hr />
+<h3 id="_kbdbuffer"><strong>_kbdBuffer</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">kbdBuffer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w">     </span><span class="n">buffer</span><span class="p">[</span><span class="n">MAX_KEYBOARD_BUFFER</span><span class="p">];</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w">    </span><span class="n">index</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w">    </span><span class="n">size</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">}</span><span class="w"> </span><span class="n">_kbdBuffer</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>The <strong>_kbdBuffer</strong> struct represents a keyboard buffer.</p>
+<p><strong>&gt;&gt; Fields:</strong></p>
+<ul>
+<li><strong>uint8_t buffer[MAX_KEYBOARD_BUFFER]:</strong> the buffer to store the keyboard input.</li>
+<li><strong>uint32_t index:</strong> the current index in the buffer.</li>
+<li><strong>uint32_t size:</strong> the size of the buffer.</li>
+</ul>
+<hr />
+<h3 id="onkeypresshanlder"><strong>onKeyPressHanlder</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">onKeyPressHanlder</span><span class="p">)(</span><span class="kt">uint8_t</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>The <strong>onKeyPressHanlder</strong> is a function pointer type that represents a key press handler.</p>
+<p><strong>&gt;&gt; Parameters:</strong></p>
+<ul>
+<li><strong>uint8_t:</strong> pressed letter. (!= scancode)</li>
+</ul>
+<hr />
+<h3 id="onkeyreleasehanlder"><strong>onKeyReleaseHanlder</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">onKeyReleaseHanlder</span><span class="p">)(</span><span class="kt">uint8_t</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>The <strong>onKeyReleaseHanlder</strong> is a function pointer type that represents a key release handler.</p>
+<p><strong>&gt;&gt; Parameters:</strong></p>
+<ul>
+<li><strong>uint8_t:</strong> the scancode of the released key.</li>
+</ul>
+<hr />
+<h3 id="_shortcut"><strong>_shortcut</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">shortcut</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="kt">char</span><span class="w">                </span><span class="n">key</span><span class="p">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w">             </span><span class="n">flagedModifiers</span><span class="p">;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="n">onShortcutHandler</span><span class="w">   </span><span class="n">handler</span><span class="p">;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span><span class="w"> </span><span class="n">_shortcut</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>The <strong>_shortcut</strong> struct represents a keyboard shortcut.</p>
+<p><strong>&gt;&gt; Fields:</strong></p>
+<ul>
+<li><strong>char key:</strong> the key of the shortcut.</li>
+<li><strong>uint8_t flagedModifiers:</strong> the modifiers of the shortcut. (ctrl | alt | shift)</li>
+<li><strong>onShortcutHandler handler:</strong> the handler of the shortcut.</li>
+</ul>
+<hr />
+<h3 id="onshortcuthandler"><strong>onShortcutHandler</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">onShortcutHandler</span><span class="p">)(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<p>The <strong>onShortcutHandler</strong> is a function pointer type that represents a shortcut handler.</p>
+<hr />
+<h3 id="_kbdlayout"><strong>_kbdLayout</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">union</span><span class="w"> </span><span class="nc">kbdLayout</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">keyboardViews</span><span class="w"> </span><span class="n">kbdV</span><span class="p">;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">views</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span><span class="w"> </span><span class="n">_kbdLayout</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>&gt;&gt; Description:</strong></p>
+<ul>
+<li>The <strong>_kbdLayout</strong> union represents a keyboard layout.</li>
+<li>the keyboard layout can be accessed as a struct (<a href="#keyboardViews">keyboardViews</a>) or as an array of uint8_t pointers.</li>
+<li>keyboard layouts are declared in the keyboardDriver.c file.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
