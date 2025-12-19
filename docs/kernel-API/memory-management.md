@@ -119,44 +119,171 @@ Each 2 bits in the array `pagesBitmap` corresponds to a virtual page, and its va
 	
 ```
 
+### **allocPages**
+
 **>> Syntax:**
 ```c
 uint32_t	allocPages(uint32_t numberOfPages, uint32_t heapStart, uint32_t end);
 ```
+
+**>> Description:**
+
+Allocates **numberOfPages** contiguous virtual memory pages.
+
+It finds **numberOfPages** consecutive free pages, sets the corresponding bits to **allocated** in the **`pagesBitmap`**, and returns the virtual address of the first page.
+
+The total allocated virtual address range is: **`numberOfPages × PAGE_SIZE bytes`**
+
+**>> Parameters:**
+
+- **numberOfPages**: number of pages to allocate
+- **heapStart**: the first address of the heap
+	- **KERNEL_HEAP_START**: 0xC1000000
+	- **USER_HEAP_START**: 0x00001000
+
+```text
+		            Virtual Address Space (32-bit, 3 G / 1 G split)
+		┌───────────────────────────────────────────────────────────────┐
+		│ USER SPACE  (per-process)							  		    │
+		│                                                               │
+		│ 0x00000000 ───────────────────────────────────────────────────┤
+		│ |  NULL                                                       │
+		│                                                               │
+		│ 0x00001000 ───────────────────────────────────────────────────┤
+		│ |  User code / data / heap / stack / mmap / libraries         │
+		│ |  (managed by each process’s page directory)                 │
+		│ |  Typically up to 3 GB total                                 │
+		│                                                               │
+		│ 0xBFFFFFFF ───────────────────────────────────────────────────┤
+		│ Transition to kernel-only virtual addresses                   │
+		├───────────────────────────────────────────────────────────────┤
+		│ KERNEL SPACE  (global, same in all processes)                 │
+		│                                                               │
+		│ 0xC0000000 ───────────────────────────────────────────────────┤
+		│ |  Direct-mapped physical memory (“lowmem”)                   │
+		│ |  Virtual = physical + 0xC0000000                            │
+		│ |  Contains:                                                  │
+		│ |   • kernel text/data/BSS                                    │
+		│ |   • page tables                                             │
+		│ |   • per-task kernel stacks (each 4–8 KB)                    │
+		│ |   • slab caches, low-mem pages                              │
+		│ |  [This region extends for size of physical lowmem]          │
+		│                                                               │
+		│                                                               │
+		│ 0xC1000000 ───────────────────────────────────────────────────┤
+		│ |  Gap / alignment buffer (≈16 MB by convention)              │
+		│ |  Prevents accidental overlap                                │
+		│                                                               │
+		│ 0xC1000000 ───────────────────────────────────────────────────┤
+		│ |  Kernel “heap” / vmalloc area                               │
+		│ |  Used by:                                                   │
+		│ |   • vmalloc(), vmap()                                       │
+		│ |   • ioremap() mappings below Fixmap                         │
+		│ |  Virtually contiguous, physically discontiguous pages       │
+		│ |  (≈0xC0800000–0xF7FFFFFF)                                   │
+		│                                                               │
+		│ 0xF8000000 ───────────────────────────────────────────────────┤
+		│ |  High-mem temporary mappings (kmap, pkmap)                  │
+		│ |  IO-remap region                                            │
+		│ |  Architecture-specific mappings                             │
+		│                                                               │
+		│ 0xFFF00000 ───────────────────────────────────────────────────┤
+		│ |  Fixmap region                                              │
+		│ |   • APIC, BIOS, CPU local data                              │
+		│ |   • Kernel vsyscall page                                    │
+		│ |  Computed downward from 0xFFFFF000                          │
+		│                                                               │
+		│ 0xFFFFFFFF ───────────────────────────────────────────────────┘
+```
+- **end**: always give it 0. #used to restart search from 0 in case the end of numberOfPages is reached
+
+### **freePages**
 
 **>> Syntax:**
 ```c
 size_t	freePages(uint32_t ptr, uint32_t heapStart);
 ```
 
+**>> Description:**
+
+Frees a previously allocated contiguous virtual memory region.
+
+Using the ptr, it locates the allocation, frees all associated virtual pages by clearing the corresponding bits in the pagesBitmap, and returns the number of pages that were freed.
+
+**>> Parameters:**
+
+- **ptr**: address to free
+- **heapStart**: the first address of the heap
+	- **KERNEL_HEAP_START**: 0xC1000000
+	- **USER_HEAP_START**: 0x00001000
+
+**>> Return:**
+
+The number of pages that were freed.
+
 ---
 
 ## Memory mapping
----
 
-
-- [mapPage](#mapPage)
+<!-- - [mapPage](#mapPage)
 - [unmapPage](#unmapPage)
 - [kmmap](#kmmap)
-- [kunmap](#kunmap)
+- [kunmap](#kunmap) -->
 
+---
+
+### **kmmap**
 
 **>> Syntax:**
+
 ```c
 void	*kmmap(size_t size);
 ```
 
+**>> Description:**
+
+Maps a memory region of the given size in bytes.
+
+It calculates the required number of pages, allocates that many contiguous virtual pages, then allocates the same number of physical frames (which may be contiguous or non-contiguous, depending on availability). Then call [mapPage](#mapPage).
+
+**>> Return:**
+
+The virtual address of the first page.
+
+### **mapPage**
+
 **>> Syntax:**
+```c
+void	mapPage(uint32_t virtAddr, uint32_t physAddr, uint32_t flags);
+```
+
+**>> Description:**
+
+Maps a virtual page to a frame in the page directory 
+
+
+### **kunmap**
+
+**>> Syntax:**
+
 ```c
 void	kunmap(uint32_t vaddr);
 ```
 
-**>> Syntax:**
-```c
-void mapPage(uint32_t virtAddr, uint32_t physAddr, uint32_t flags);
-```
+**>> Description:**
+
+Unmaps a previously mapped virtual memory region.
+
+Starting from vaddr, it frees the virtual pages and its corresponding physical frames. Than calls [unmapPage](#unmapPage)
+
+
+### **unmapPage**
 
 **>> Syntax:**
 ```c
-void unmapPage(uint32_t virtAddr);
+void	unmapPage(uint32_t virtAddr);
 ```
+
+**>> Description:**
+
+Removes the corresponding entry of virtAddr from the page table (page directory)
